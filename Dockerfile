@@ -1,19 +1,21 @@
+# Use an official Node.js runtime as a parent image
 FROM node:20-slim
 
-WORKDIR /code
+# Set working directory inside the container
+WORKDIR /app
 
-# Copy package files
+# Copy package files first to leverage Docker caching
 COPY package*.json ./
 
-# Install dependencies (adding dotenv)
-RUN npm install express node-fetch cors dotenv
+# Install dependencies
+RUN npm install --production
 
-# Bundle app source
+# Copy the rest of the application
 COPY . .
 
-# Default environment variables if not provided at runtime
+# Expose the application port
 ENV PORT=7860
-ENV NODE_ENV=production
+EXPOSE 7860
 
 # Start the application
 CMD ["node", "index.js"]
