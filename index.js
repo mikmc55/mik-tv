@@ -8,7 +8,7 @@ const fetch = require('node-fetch');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 7860;
+const PORT = process.env.PORT || 3000;
 
 // MongoDB connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://mikmc55:vD6kL6jADy4Mxl5B@hy0.av11l.mongodb.net/?retryWrites=true&w=majority&appName=hy0';
