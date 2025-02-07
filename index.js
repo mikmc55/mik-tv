@@ -439,8 +439,8 @@ async function initializeAdmin() {
     try {
         const adminExists = await db.collection('users').findOne({ username: process.env.ADMIN_USERNAME || 'admin' });
         if (!adminExists) {
-            const defaultUsername = process.env.ADMIN_USERNAME || 'mikmc';
-            const defaultPassword = process.env.ADMIN_PASSWORD || 'chinaski';
+            const defaultUsername = process.env.ADMIN_USERNAME || 'admin';
+            const defaultPassword = process.env.ADMIN_PASSWORD || 'admin';
             const hashedPassword = await bcrypt.hash(defaultPassword, 10);
             
             await db.collection('users').insertOne({
